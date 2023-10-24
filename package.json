@@ -22,7 +22,8 @@
     "react-dom": "^18.2.0",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.17.0",
-    "react-transition-group": "^4.4.5"
+    "react-transition-group": "^4.4.5",
+    "sonner": "^1.0.3"
   },
   "devDependencies": {
     "@types/node": "^20.8.7",

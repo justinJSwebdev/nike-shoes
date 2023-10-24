@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom'
 import { path } from 'src/constants/path'
 import Option from 'src/components/Option/Option'
 import { motion } from 'framer-motion'
+import Loading from 'src/components/Loading/Loading'
 export default function Homepage() {
   return (
     <>
+      <Loading></Loading>
       <section className='section py-5 md:p-0 h-[390px] lg:h-[770px]  bg-hero-pattern  bg-cover bg-left md:bg-center bg-no-repeat w-full'>
         <div className='container grid gap-x-[160px] items-center grid-cols-1 md:grid-cols-2 h-full'>
           <div className='w-full'>
@@ -37,13 +39,18 @@ export default function Homepage() {
               Xem sản phẩm
             </Button>
           </div>
-          <div className='hidden w-full md:block'>
+          <motion.div
+            className='hidden w-full md:block'
+            initial={{ x: 300, opacity: 0 }}
+            animate={{ x: 0, opacity: 100 }}
+            transition={{ ease: 'easeOut', duration: 0.75 }}
+          >
             <img
-              src='./images/product1.png'
+              src='./images/product-main.png'
               alt='product-slider'
-              className='lg:h-[400px] xl:h-[506px] w-full object-cover'
+              className='lg:h-[500px] xl:h-[600px] w-full object-contain'
             />
-          </div>
+          </motion.div>
         </div>
       </section>
       {/* Featured products */}
@@ -57,7 +64,7 @@ export default function Homepage() {
           >
             Xem tất cả
           </Link>
-          <div className='grid mt-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-5'>
+          <div className='grid mt-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5'>
             <Product></Product>
             <Product></Product>
             <Product></Product>

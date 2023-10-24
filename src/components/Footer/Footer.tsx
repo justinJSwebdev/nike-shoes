@@ -42,7 +42,7 @@ export default function Footer() {
                 type='text'
                 placeholder='Nhập địa chỉ email'
               />
-              <button className='h-full px-6 font-semibold text-white bg-yellowLinear'>Theo dõi</button>
+              <button className='h-full text-xs sm:text-base px-6 font-semibold text-white bg-yellowLinear'>Theo dõi</button>
             </div>
           </div>
         </div>

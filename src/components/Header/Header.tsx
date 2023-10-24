@@ -5,11 +5,16 @@ import { CartIcon, MenuMobile, SearchIcon } from 'src/icons'
 import Popover from '../Popover/Popover'
 import { path } from 'src/constants/path'
 import { useAppDispatch } from 'src/redux/hooks'
-import { open } from 'src/contexts/MenuMobileContext'
+import { open } from 'src/redux/features/MenuMobileContext'
 import React from 'react'
+import Popover2 from '../Popover2/Popover2'
 const Header = () => {
-  const isAuthenticated = true
+  const isAuthenticated = !true
   const dispatch = useAppDispatch()
+  function handlePreventPropagation(e: React.MouseEvent<SVGSVGElement, MouseEvent>) {
+    dispatch(open())
+    e.stopPropagation()
+  }
   return (
     <header className='h-[90px] w-full fixed top-0 left-0 right-0 shadow-md z-10 bg-white'>
       <nav className='container h-full flex justify-between items-center leading-[90px] relative'>
@@ -42,17 +47,7 @@ const Header = () => {
           <Link to='/'>
             <CartIcon className='w-[28px] h-[28px]'></CartIcon>
           </Link>
-          {!isAuthenticated && (
-            <div className='hidden medium:flex cursor-pointer items-center gap-x-3'>
-              <Link to={path.signUp} className='block bg-white text-left  hover:text-yellowLinear font-medium'>
-                Đăng ký
-              </Link>
-              <div className='w-[1px] h-[20px] bg-black24'></div>
-              <Link to={path.signIn} className='block  hover:text-yellowLinear font-medium'>
-                Đăng nhập
-              </Link>
-            </div>
-          )}
+          {!isAuthenticated && <Popover2></Popover2>}
           {isAuthenticated && (
             <Popover
               className='hidden medium:flex cursor-pointer items-center py-1 hover:text-black24 '
@@ -91,14 +86,12 @@ const Header = () => {
               </div>
             </Popover>
           )}
-          <Link to='/'>
+          <div>
             <MenuMobile
               className='w-[28px] h-[28px] block medium:hidden'
-              onClick={() => {
-                dispatch(open())
-              }}
+              onClick={handlePreventPropagation}
             ></MenuMobile>
-          </Link>
+          </div>
         </div>
       </nav>
     </header>

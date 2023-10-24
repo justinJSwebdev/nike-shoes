@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from 'src/contexts/MenuMobileContext'
+import counterReducer from 'src/redux/features/MenuMobileContext'
 
 export const store = configureStore({
   reducer: {

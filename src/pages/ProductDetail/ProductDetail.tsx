@@ -1,18 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import Button from 'src/components/Button/Button'
 import Product from 'src/components/Product/Product'
 import QuantityController from 'src/components/QuantityController'
 import { path } from 'src/constants/path'
-
 export default function ProductDetail() {
   const [quantity, setQuantity] = useState<number>(1)
   const [option, setOption] = useState<string>('detail')
   const handleChangeValue = (value: number) => {
     value && setQuantity(value)
   }
+  const nodeRef = useRef<HTMLDivElement>(null)
   return (
-    <div>
+    <div ref={nodeRef}>
       <section className='mt-5 section'>
         <div className='container'>
           <div className='grid grid-cols-1 medium:grid-cols-[600px_1fr] md:grid-cols-2  gap-[15px] md:gap-[70px]'>
@@ -134,7 +134,13 @@ export default function ProductDetail() {
               Đánh giá (1)
             </button>
           </div>
-          {option === 'detail' && <div>Product Detail</div>}
+          {option === 'detail' && (
+            <div className='py-2 px-3 mt-5 text-xs md:py-[20px] md:text-base md:px-[30px] lg:py-[62px] lg:px-[101px] rounded-lg border md:mt-[50px] lg:mt-[72px] font-medium'>
+              Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum
+              tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Doneceu libero sit amet quam egestas
+              semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+            </div>
+          )}
           {option === 'review' && <div>Product Review</div>}
         </div>
       </section>
