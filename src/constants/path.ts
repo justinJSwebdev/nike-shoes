@@ -6,6 +6,7 @@ export const path = {
   home: '/',
   about: '/about',
   products: '/products',
+  product: '/products/:id',
   news: '/news',
   contact: '/'
 }

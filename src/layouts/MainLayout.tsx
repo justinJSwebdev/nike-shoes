@@ -8,10 +8,11 @@ import { path } from 'src/constants/path'
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   const isLogin = useMatch(path.signIn)
   const isSignUp = useMatch(path.signUp)
+
   return (
     <React.Fragment>
       <div className='h-[90px]'>{isSignUp || isLogin ? <AuthHeader></AuthHeader> : <Header></Header>}</div>
-      <div className=''>{children}</div>
+      {children}
       <Footer></Footer>
     </React.Fragment>
   )

@@ -4,6 +4,7 @@ import MainLayout from './layouts/MainLayout'
 import { path } from './constants/path'
 import SignInPage from './pages/Login/SignInPage'
 import SignUpPage from './pages/SignUp/SignUpPage'
+import ProductDetail from './pages/ProductDetail/ProductDetail'
 
 export default function useRoutesElements() {
   const routes = useRoutes([
@@ -21,6 +22,14 @@ export default function useRoutesElements() {
       element: (
         <MainLayout>
           <SignInPage></SignInPage>
+        </MainLayout>
+      )
+    },
+    {
+      path: path.product,
+      element: (
+        <MainLayout>
+          <ProductDetail></ProductDetail>
         </MainLayout>
       )
     },

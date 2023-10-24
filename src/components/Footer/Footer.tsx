@@ -7,25 +7,24 @@ export default function Footer() {
   return (
     <footer className='mt-auto py-[82px] bg-footer'>
       <div className='container'>
-        <div className='flex items-start justify-between flex-wrap'>
-          <div className='flex flex-col max-w-[258px]'>
+        <div className='flex flex-wrap items-start justify-between'>
+          <div className='flex flex-col mb-4 w-full md:max-w-[258px] md:mb-0'>
             <Link to={path.home} className='flex items-center gap-x-3'>
-              <img src='./images/logo.png' alt='logo' className='w-[40px] h-[40px] object-cover flex-shrink-0' />
-              <h2 className='font-title font-semibold text-2xl '>She's Cos</h2>
+              <img src='../images/logo.png' alt='logo' className='w-[40px] h-[40px] object-cover flex-shrink-0' />
+              <h2 className='text-2xl font-semibold font-title '>She's Cos</h2>
             </Link>
-            <p className='text-sm mt-4'>
+            <p className='mt-4 text-sm'>
               <span className='font-semibold'>Địa chỉ:</span> 246 Dương Bá Trạc, P.2, Q.8, TP.HCM
             </p>
-            <p className='text-sm mt-4 font-semibold '>+391 (0)35 2568 4593</p>
-            <p className='text-sm mt-4 '>hello@shecos</p>
+            <p className='mt-4 text-sm font-semibold '>+391 (0)35 2568 4593</p>
+            <p className='mt-4 text-sm '>hello@shecos</p>
           </div>
-          <div className='flex flex-col items-start  max-w-[258px]'>
-            <h3 className='font-semibold text-xl'>Danh Mục</h3>
+          <div className='hidden flex-col items-start  max-w-[258px] md:flex'>
+            <h3 className='text-xl font-semibold'>Danh Mục</h3>
             {menuOptions.map((option, index) => (
               <Link
                 to={option.path}
-                className='font-normal
-                text-base hover:text-yellowLinear py-2 transition duration-200'
+                className='py-2 text-base font-normal transition duration-200 hover:text-yellowLinear'
                 key={index}
               >
                 {option.title}
@@ -33,21 +32,21 @@ export default function Footer() {
             ))}
           </div>
           <div className='max-w-[586px]'>
-            <h3 className='text-4xl font-semibold'>Theo dõi chúng tôi</h3>
-            <p className='mt-4'>
+            <h3 className='text-lg font-semibold md:text-4xl'>Theo dõi chúng tôi</h3>
+            <p className='mt-4 text-sm md:text-base'>
               Nhập email của bạn dưới đây để là người đầu tiên biết về các bộ sưu tập mới và ra mắt sản phẩm.
             </p>
             <div className='flex items-center h-[48px] mt-11'>
               <input
-                className='border-none outline-none py-4 px-5 flex-1 h-full focus:outline-none'
+                className='flex-1 h-full px-5 py-4 border-none outline-none focus:outline-none'
                 type='text'
                 placeholder='Nhập địa chỉ email'
               />
-              <button className=' px-6 bg-yellowLinear text-white font-semibold h-full '>Theo dõi</button>
+              <button className='h-full px-6 font-semibold text-white bg-yellowLinear'>Theo dõi</button>
             </div>
           </div>
         </div>
-        <div className='text-mediumGrey mt-2'>© She's cosmetic 2023</div>
+        <div className='mt-2 text-mediumGrey'>© She's cosmetic 2023</div>
       </div>
     </footer>
   )

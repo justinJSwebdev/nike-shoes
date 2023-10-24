@@ -60,8 +60,8 @@ const Popover = ({
             >
               <span
                 ref={arrowRef}
-                className='absolute z-10 -translate-y-[95%] border-[11px] border-x-transparent border-b-white border-t-transparent after:absolute
-            after:z-20 after:block after:h-[10px] after:w-[120px] 
+                className='absolute z-20 -translate-y-[95%] border-[11px] border-x-transparent border-b-white border-t-transparent after:absolute
+            after:z-30 after:block after:h-[10px] after:w-[120px] 
             after:-translate-x-2/4  
             '
                 style={{
