@@ -16,7 +16,7 @@ const Header = () => {
     e.stopPropagation()
   }
   return (
-    <header className='h-[90px] w-full fixed top-0 left-0 right-0 shadow-md z-10 bg-white'>
+    <header className='h-[90px] w-full fixed top-0 left-0 right-0 shadow-md z-20 bg-white'>
       <nav className='container h-full flex justify-between items-center leading-[90px] relative'>
         <Link to={path.home} className='flex items-center gap-x-3'>
           <img src='../images/logo.png' alt='logo' className='w-[40px] h-[40px] object-cover flex-shrink-0' />

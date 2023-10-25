@@ -34,3 +34,17 @@ body #root {
     @apply text-center text-darkGrey font-normal text-base;
   }
 }
+
+.custom-radio > div {
+  box-shadow: 0 0 0 2px black;
+}
+
+.custom-radio input:checked + div {
+  @apply bg-green-500;
+  box-shadow:
+    0 0 0 2.5px white,
+    0 0 0 5px rgb(14 159 110 / var(--tw-bg-opacity));
+}
+.custom-checkbox input:checked + div > div {
+  display: flex;
+}

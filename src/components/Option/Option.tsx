@@ -6,12 +6,7 @@ type Props = {
   children: React.ReactNode
   className?: string
 }
-export default function Option({
-  image = './images/method-1.png',
-
-  children = 'Da mụn',
-  className = ''
-}: Props) {
+export default function Option({ image = './images/method-1.png', children = 'Da mụn', className = '' }: Props) {
   return (
     <div className='relative group transition duration-300 rounded-xl'>
       <div className='absolute inset-0 bg-black/50 group-hover:bg-transparent transition duration-300 cursor-pointer rounded-lg'></div>

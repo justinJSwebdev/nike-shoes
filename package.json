@@ -13,6 +13,7 @@
     "prettier:fix": "prettier --write \"src/**/(*.tsx|*.ts|*.css|*.scss)\""
   },
   "dependencies": {
+    "ant-design": "^1.0.0",
     "axios": "^1.5.1",
     "flowbite": "^1.8.1",
     "flowbite-react": "^0.6.4",
@@ -20,6 +21,7 @@
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.47.0",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.17.0",
     "react-transition-group": "^4.4.5",
