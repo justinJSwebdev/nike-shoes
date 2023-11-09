@@ -16,20 +16,17 @@ const Header = () => {
     e.stopPropagation()
   }
   return (
-    <header className='h-[90px] w-full fixed top-0 left-0 right-0 shadow-md z-20 bg-white'>
-      <nav className='container h-full flex justify-between items-center leading-[90px] relative'>
+    <header className='h-[72px] w-full fixed top-0 left-0 right-0 shadow-md z-30 bg-black text-white'>
+      <nav className='container h-full flex justify-between items-center leading-[72px] relative'>
         <Link to={path.home} className='flex items-center gap-x-3'>
-          <img src='../images/logo.png' alt='logo' className='w-[40px] h-[40px] object-cover flex-shrink-0' />
-          <h1 className='font-title font-semibold text-2xl '>She's Cos</h1>
+          <h1 className='text-2xl font-semibold font-title '>NK</h1>
         </Link>
-        <div className='hidden lg:flex items-center '>
+        <div className='items-center hidden lg:flex '>
           {menuOptions.map((option, index) => (
             <NavLink
               to={option.path}
               className={({ isActive }) =>
-                `${
-                  isActive ? 'font-bold text-yellowLinear' : 'font-semibold'
-                } text-base hover:text-yellowLinear  px-3 py-2 transition duration-200`
+                `${isActive ? 'font-bold ' : 'font-semibold'} text-base   px-3 py-2 transition duration-200`
               }
               key={index}
             >
@@ -37,10 +34,10 @@ const Header = () => {
             </NavLink>
           ))}
         </div>
-        <div className='flex items-center gap-x-5'>
-          <Link to='/' className='hidden medium:block group relative w-max'>
+        <div className='flex items-center text-white gap-x-5'>
+          <Link to='/' className='relative hidden medium:block group w-max'>
             <SearchIcon className='w-[28px] h-[28px]'></SearchIcon>
-            <span className='pointer-events-none absolute top-8 -left-8 w-max opacity-0 transition-opacity group-hover:opacity-100 text-xs text-semibold bg-black text-white p-2 rounded-lg'>
+            <span className='absolute p-2 text-xs text-white transition-opacity bg-black rounded-lg opacity-0 pointer-events-none top-8 -left-8 w-max group-hover:opacity-100 text-semibold'>
               Tìm kiếm sản phẩm
             </span>
           </Link>
@@ -50,23 +47,23 @@ const Header = () => {
           {!isAuthenticated && <Popover2></Popover2>}
           {isAuthenticated && (
             <Popover
-              className='hidden medium:flex cursor-pointer items-center py-1 hover:text-black24 '
+              className='items-center hidden py-1 cursor-pointer medium:flex hover:text-black24 '
               renderPopover={
-                <div className='rounded-sm border border-gray-200 bg-white shadow-md '>
+                <div className='text-black bg-white border border-gray-200 rounded-sm shadow-md'>
                   <Link
                     to='/profile'
-                    className='block bg-white px-3 py-2 text-left hover:bg-slate-100 hover:text-yellowLinear font-medium'
+                    className='block px-3 py-2 font-medium text-left bg-white hover:bg-slate-100 hover:text-yellowLinear'
                   >
                     Thông tin của tôi
                   </Link>
                   <Link
                     to='/'
-                    className='block bg-white px-3 py-2 text-left hover:bg-slate-100 hover:text-yellowLinear font-medium'
+                    className='block px-3 py-2 font-medium text-left bg-white hover:bg-slate-100 hover:text-yellowLinear'
                   >
                     Đơn mua
                   </Link>
                   <button
-                    className='block w-full bg-white px-3 py-2 text-left hover:bg-slate-100 hover:text-yellowLinear font-medium'
+                    className='block w-full px-3 py-2 font-medium text-left text-black bg-white hover:bg-slate-100 hover:text-yellowLinear'
                     // onClick={handleLogout}
                   >
                     Đăng xuất
@@ -76,11 +73,11 @@ const Header = () => {
             >
               <div className='flex items-center'>
                 <h3 className='font-semibold'>Tran Ky Hung</h3>
-                <div className='ml-2 h-10 w-10 flex-shrink-0'>
+                <div className='flex-shrink-0 w-10 h-10 ml-2'>
                   <img
                     src='https://source.unsplash.com/random'
                     alt='avatar'
-                    className='h-full w-full rounded-full object-cover'
+                    className='object-cover w-full h-full rounded-full'
                   />
                 </div>
               </div>

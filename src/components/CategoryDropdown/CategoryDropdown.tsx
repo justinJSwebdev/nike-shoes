@@ -12,7 +12,7 @@ export default function CategoryDropdown() {
     navigate(`/products?sortBy=${key.toLowerCase()}`)
   }
   return (
-    <div className='relative' ref={nodeRef}>
+    <div className='relative z-[25]' ref={nodeRef}>
       <div
         className='p-5 rounded-lg border border-gray100 bg-white flex items-center justify-between cursor-pointer min-w-[250px]'
         onClick={() => {
@@ -28,35 +28,35 @@ export default function CategoryDropdown() {
         }`}
       >
         <div
-          className='p-5 hover:text-green-500 cursor-pointer font-medium'
+          className='p-5 font-medium cursor-pointer hover:text-green-500'
           onClick={() => handleClickOption(' Mới nhất', 'new')}
           aria-hidden
         >
           Mới nhất
         </div>
         <div
-          className='p-5 hover:text-green-500 cursor-pointer font-medium'
+          className='p-5 font-medium cursor-pointer hover:text-green-500'
           onClick={() => handleClickOption('Cũ nhất', 'old')}
           aria-hidden
         >
           Cũ nhất
         </div>
         <div
-          className='p-5 hover:text-green-500 cursor-pointer font-medium'
+          className='p-5 font-medium cursor-pointer hover:text-green-500'
           onClick={() => handleClickOption('Phổ biến nhất', 'popular')}
           aria-hidden
         >
           Phổ biến nhất
         </div>
         <div
-          className='p-5 hover:text-green-500 cursor-pointer font-medium'
+          className='p-5 font-medium cursor-pointer hover:text-green-500'
           onClick={() => handleClickOption('Giá thấp tới cao', 'lower')}
           aria-hidden
         >
           Giá thấp tới cao
         </div>
         <div
-          className='p-5 hover:text-green-500 cursor-pointer font-medium'
+          className='p-5 font-medium cursor-pointer hover:text-green-500'
           onClick={() => handleClickOption('  Giá cao tới thấp', 'higher')}
           aria-hidden
         >

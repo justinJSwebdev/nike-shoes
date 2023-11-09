@@ -5,7 +5,7 @@ export default function Button({ children, className, type, ...rest }: Props) {
   return (
     <button
       type={type}
-      className={`w-full h-[50px] md:h-[60px] bg-yellowLinear px-6 text-center text-white hover:bg-yellow-500 transition duration-300  rounded-md ${className}`}
+      className={`w-full  bg-white px-3 py-3 text-center text-darkgrey hover:bg-black hover:text-white transition duration-300  rounded-[100px] ${className}`}
       {...rest}
     >
       {children}

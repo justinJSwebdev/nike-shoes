@@ -11,8 +11,8 @@ export default function MainLayout({ children }: { children: React.ReactNode }) 
 
   return (
     <React.Fragment>
-      <div className='h-[90px]'>{isSignUp || isLogin ? <AuthHeader></AuthHeader> : <Header></Header>}</div>
-      {children}
+      <div>{isSignUp || isLogin ? <AuthHeader></AuthHeader> : <Header></Header>}</div>
+      <div className='py-[72px]'>{children}</div>
       <Footer></Footer>
     </React.Fragment>
   )

@@ -1,22 +1,22 @@
 export const menuOptions = [
   {
-    title: 'Trang chủ',
+    title: 'Men',
     path: '/'
   },
   {
-    title: 'Giới thiệu',
+    title: 'Women',
     path: '/about'
   },
   {
-    title: 'Sản phẩm',
+    title: 'Kids',
     path: '/products'
   },
   {
-    title: 'Tin tức',
+    title: 'Customise',
     path: '/news'
   },
   {
-    title: 'Liên Hệ',
+    title: 'Sale',
     path: '/contact'
   }
 ]

@@ -3,9 +3,7 @@ module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     fontFamily: {
-      'body': ['Montserrat', 'sans-serif'],
-      'title': ['Playfair Display', 'serif'],
-      'slider': ['Dancing Script', 'cursive']
+      'body': ['Poppins', 'sans-serif']
     },
 
     extend: {

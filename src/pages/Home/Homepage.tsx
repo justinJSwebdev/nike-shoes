@@ -1,123 +1,223 @@
 import Button from 'src/components/Button/Button'
 import Product from 'src/components/Product/Product'
-import React from 'react'
 import { Link } from 'react-router-dom'
 import { path } from 'src/constants/path'
 import Option from 'src/components/Option/Option'
 import { motion } from 'framer-motion'
-import Loading from 'src/components/Loading/Loading'
+// eslint-disable-next-line import/no-unresolved
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+
+import 'swiper/css/scrollbar'
+import Slider from 'src/components/Slider/Slider'
 export default function Homepage() {
   return (
     <>
-      <Loading></Loading>
-      <section className='section py-5 md:p-0 h-[390px] lg:h-[770px]  bg-hero-pattern  bg-cover bg-left md:bg-center bg-no-repeat w-full'>
-        <div className='container grid gap-x-[160px] items-center grid-cols-1 md:grid-cols-2 h-full'>
-          <div className='w-full'>
-            <motion.div
-              initial={{ y: -100, opacity: 0 }}
-              animate={{ y: 0, opacity: 0.7 }}
-              transition={{ ease: 'easeOut', duration: 1 }}
-              className='text-2xl font-slider text-yellowLinear md:text-2xl lg:text-[44px] font-semibold italic mb-3'
-            >
-              Mặt hàng thiết yếu
-            </motion.div>
-            <motion.h2
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ ease: 'easeOut', duration: 3 }}
-              className='text-black24  text-2xl md:text-3xl md:leading-8 font-semibold lg:leading-[72px] mb-1 lg:text-[56px] md:mb-3 lg:mb-6 '
-            >
-              Cảm hứng làm đẹp từ cuộc sống
-            </motion.h2>
-            <p className='mb-8 font-normal text-darkGrey md:text-sm lg:text-base'>
-              {' '}
-              Được làm bằng nguyên liệu sạch, không độc hại, sản phẩm của chúng tôi là được thiết kế cho tất cả mọi
-              người.
-            </p>
-            <Button type='button' className='max-w-[210px]'>
-              Xem sản phẩm
-            </Button>
-          </div>
-          <motion.div
-            className='hidden w-full md:block'
-            initial={{ x: 300, opacity: 0 }}
-            animate={{ x: 0, opacity: 100 }}
+      <section className='section md:p-0 h-[390px] lg:h-[770px] bg-hero-pattern bg-cover bg-top  bg-no-repeat w-full relative pt-[72px] overflow-hidden'>
+        <div className='absolute inset-0 w-full h-full bg-black/40'></div>
+        <div className='container relative flex flex-col justify-end w-full h-full'>
+          <motion.h1
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
             transition={{ ease: 'easeOut', duration: 0.75 }}
+            className='text-2xl text-white md:text-2xl lg:text-[44px] font-semibold mb-3'
           >
-            <img
-              src='./images/product-main.png'
-              alt='product-slider'
-              className='lg:h-[500px] xl:h-[600px] w-full object-contain'
-            />
+            RUN FOR THE HILLS
+          </motion.h1>
+          <motion.p
+            initial={{ y: 200, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ ease: 'easeOut', duration: 1.5 }}
+            className='mb-4 font-normal text-white md:text-sm lg:text-base max-w-[467px]'
+          >
+            It time to put on your running shoes and Run For The Hills Every minute counts.
+          </motion.p>
+          <motion.div
+            initial={{ y: 300 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ ease: 'easeOut', duration: 2 }}
+            className=''
+          >
+            <Button type='button' className='max-w-[210px] mb-[50px] md:mb-[90px]'>
+              Learn more
+            </Button>
           </motion.div>
         </div>
       </section>
       {/* Featured products */}
       <section className='section'>
         <div className='container'>
-          <h2 className='section-heading'>Sản phẩm nổi bật</h2>
-          <p className='section-desc'>Có được làn da bạn muốn cảm nhận</p>
-          <Link
-            to={path.products}
-            className='block px-6 my-4 text-base font-semibold text-center transition duration-300 rounded-md text-darkGrey md:text-right hover:text-yellowLinear '
-          >
-            Xem tất cả
-          </Link>
-          <div className='grid mt-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5'>
-            <Product></Product>
-            <Product></Product>
-            <Product></Product>
-            <Product></Product>
+          <h2 className='section-heading'>Featured</h2>
+          <div className='w-full h-[350px] md:h-[520px]'>
+            <Swiper
+              modules={[Navigation]}
+              // autoplay={{
+              //   delay: 3500,
+              //   disableOnInteraction: false
+              // }}
+              spaceBetween={20}
+              slidesPerView={1}
+              navigation
+              breakpoints={{
+                740: {
+                  slidesPerView: 2,
+                  spaceBetween: 20
+                },
+
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 20
+                }
+              }}
+              className='relative w-full h-full'
+            >
+              <SwiperSlide>
+                {' '}
+                <Link to='w-full h-full'>
+                  <img src='./images/featured-1.png' alt='' className='object-cover w-full h-full' />
+                </Link>
+              </SwiperSlide>
+              <SwiperSlide>
+                <Link to='w-full h-full'>
+                  <img src='./images/featured-2.png' alt='' className='object-cover w-full h-full' />
+                </Link>
+              </SwiperSlide>
+              <SwiperSlide>
+                <Link to='w-full h-full'>
+                  <img src='./images/featured-3.png' alt='' className='object-cover w-full h-full' />
+                </Link>
+              </SwiperSlide>
+              <SwiperSlide>
+                <Link to='w-full h-full'>
+                  <img src='./images/featured-3.png' alt='' className='object-cover w-full h-full' />
+                </Link>
+              </SwiperSlide>
+            </Swiper>
           </div>
         </div>
       </section>
       {/* Featured Options */}
       <section className='section'>
         <div className='container'>
-          <div className='hidden md:grid grid-cols-1 lg:grid-cols-3 gap-[52px]'>
-            <div className='flex items-start gap-x-8'>
-              <div className='w-[90px] h-[90px] flex-shrink-0'>
-                <img src='./images/option1.png' alt='option' className='object-cover w-full h-full' />
-              </div>
-              <div className='flex-1'>
-                <h3 className='mb-4 text-lg font-semibold lg:text-2xl'>Đảm bảo tinh khiết</h3>
-                <p className='text-xs leading-6 lg:text-sm text-mediumGrey'>
-                  Tất cả các công thức của Grace tuân thủ nghiêm ngặt tiêu chuẩn tinh khiết và sẽ không bao giờ chứa
-                  thành phần khắc nghiệt hoặc độc hại
-                </p>
-              </div>
+          <h2 className='section-heading'>Trending</h2>
+          <div className='w-full h-[400px] md:h-[577px] grid grid-cols-1 md:grid-cols-10'>
+            <div className='col-span-1 md:col-span-7'>
+              <img src='./images/banner.jpg' alt='' className='object-cover w-full h-full' />
             </div>
-            <div className='flex items-start gap-x-8'>
-              <div className='w-[90px] h-[90px] flex-shrink-0'>
-                <img src='./images/option2.png' alt='option' className='object-cover w-full h-full' />
-              </div>
-              <div className='flex-1'>
-                <h3 className='mb-4 text-lg font-semibold lg:text-2xl'>Hoàn toàn miễn phí</h3>
-                <p className='text-xs leading-6 lg:text-sm text-mediumGrey'>
-                  Tất cả các công thức của Grace tuân thủ nghiêm ngặt tiêu chuẩn tinh khiết và sẽ không bao giờ chứa
-                  thành phần khắc nghiệt hoặc độc hại
-                </p>
-              </div>
-            </div>
-
-            <div className='flex items-start gap-x-8'>
-              <div className='w-[90px] h-[90px] flex-shrink-0'>
-                <img src='./images/option3.png' alt='option' className='object-cover w-full h-full' />
-              </div>
-              <div className='flex-1'>
-                <h3 className='mb-4 text-lg font-semibold lg:text-2xl'>Nguồn nhiên liệu sạch</h3>
-                <p className='text-xs leading-6 lg:text-sm text-mediumGrey'>
-                  Tất cả các công thức của Grace tuân thủ nghiêm ngặt tiêu chuẩn tinh khiết và sẽ không bao giờ chứa
-                  thành phần khắc nghiệt hoặc độc hại
-                </p>
+            <div className='flex flex-col flex-wrap items-center justify-center col-span-1 md:flex-col md:px-5 md:col-span-3 md:items-start md:order-none'>
+              <h2 className='text-[28px] md:text-[38px] font-bold max-w-full md:max-w-[400px] md:text-left text-center'>
+                WALK CONFIDENTLY IN YOUR SHOES
+              </h2>
+              <p className='mb-4 text-black w-full md:max-w-[400px] md:text-left text-center'>
+                Everywhere you want to go Explore every road
+              </p>
+              <div className='text-center md:text-left'>
+                <button className='px-4 py-1 border w-max transition-all duration-300 hover:bg-black hover:text-white border-black rounded-[100px]'>
+                  Shop now
+                </button>
               </div>
             </div>
           </div>
         </div>
       </section>
-      {/* Category */}
       <section className='section'>
+        <div className='container'>
+          <h2 className='section-heading'>What's Hot</h2>
+          <div className='w-full h-[380px] sm:h-[450px] md:h-[700px] relative'>
+            <img src='./images/what-hot.jpg' alt='' className='object-cover w-full h-full' />
+            <div className='absolute w-full p-8 bg-black/50 top-[50%] text-center -translate-y-1/2 text-white'>
+              <h2 className='text-[28px] md:text-[38px] font-bold'>BOLD LIKE BEFORE, BUILT FOR THE NEXT</h2>
+              <div className='max-w-[470px] mx-auto mb-2'>
+                It's time to put on your running shoes and Run For The Hills Every minute counts.
+              </div>
+              <button className='px-4 py-1 bg-black24/60 text-white w-max transition-all duration-300   rounded-[100px]'>
+                Shop now
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className='section'>
+        <div className='container'>
+          <h2 className='section-heading'>WHO ARE YOU SHOPPING FOR? </h2>
+          <div className='w-full grid-rows-[repeat(3,260px)] sm:grid-rows-[350px] medium:grid-rows-[580px] grid  grid-cols-1 sm:grid-cols-3 gap-5'>
+            <div className='relative w-full h-full'>
+              <div className='absolute inset-0 flex flex-col items-center justify-center w-full h-full bg-black/20'>
+                <h3 className='text-[28px] md:text-[38px] text-white font-bold'>Women</h3>
+                <button className='px-4 py-1 text-xs md:text-base bg-white text-black hover:text-white hover:bg-black w-max transition-all duration-300  rounded-[100px]'>
+                  Shop now
+                </button>
+              </div>
+              <img src='./images/category1.png' alt='female' className='object-cover w-full h-full' />
+            </div>
+            <div className='relative w-full h-full'>
+              <div className='absolute inset-0 flex flex-col items-center justify-center w-full h-full bg-black/20'>
+                <h3 className='text-[28px] md:text-[38px] text-white font-bold'>Men</h3>
+                <button className='px-4 py-1 text-xs md:text-base bg-white text-black hover:text-white hover:bg-black w-max transition-all duration-300  rounded-[100px]'>
+                  Shop now
+                </button>
+              </div>
+              <img src='./images/category2.png' alt='female' className='object-cover w-full h-full' />
+            </div>
+            <div className='relative w-full h-full'>
+              <div className='absolute inset-0 flex flex-col items-center justify-center w-full h-full bg-black/20'>
+                <h3 className='text-[28px] md:text-[38px] text-white font-bold'>Kids</h3>
+                <button className='px-4 py-1 text-xs md:text-base bg-white text-black hover:text-white hover:bg-black w-max transition-all duration-300  rounded-[100px]'>
+                  Shop now
+                </button>
+              </div>
+              <img src='./images/category3.png' alt='female' className='object-cover w-full h-full' />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className='section'>
+        <h2 className='section-heading'>Best of NK</h2>
+        <div className='container'>
+          <Swiper
+            modules={[Navigation]}
+            // autoplay={{
+            //   delay: 3500,
+            //   disableOnInteraction: false
+            // }}
+            spaceBetween={10}
+            slidesPerView={1}
+            navigation
+            breakpoints={{
+              500: {
+                slidesPerView: 2,
+                spaceBetween: 20
+              },
+              1024: {
+                slidesPerView: 3,
+                spaceBetween: 20
+              }
+            }}
+            className='relative w-full h-full'
+          >
+            <SwiperSlide>
+              <Product></Product>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Product></Product>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Product></Product>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Product></Product>
+            </SwiperSlide>
+            <SwiperSlide>
+              <Product></Product>
+            </SwiperSlide>
+          </Swiper>
+        </div>
+      </section>
+      {/* Category */}
+      {/* <section className='section'>
         <div className='container'>
           <h2 className='section-heading'>Giải Pháp</h2>
           <p className='section-desc'>Giúp cải thiện làn da của bạn một cách tự nhiên</p>
@@ -136,7 +236,7 @@ export default function Homepage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       {/* Supporting */}
       {/* News */}
       {/* Reviews */}
