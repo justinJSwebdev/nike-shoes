@@ -29,6 +29,6 @@ export const ModelSlice = createSlice({
 export const { open, close } = ModelSlice.actions
 
 // Other code such as selectors can use the imported `RootState` type
-export const selectCount = (state: RootState) => state.counter.status
+export const selectCount = (state: RootState) => state.modal.status
 
 export default ModelSlice.reducer

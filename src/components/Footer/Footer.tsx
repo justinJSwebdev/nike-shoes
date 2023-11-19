@@ -10,21 +10,20 @@ export default function Footer() {
         <div className='flex flex-wrap items-start justify-between'>
           <div className='flex flex-col mb-4 w-full md:max-w-[258px] md:mb-0'>
             <Link to={path.home} className='flex items-center gap-x-3'>
-              <img src='../images/logo.png' alt='logo' className='w-[40px] h-[40px] object-cover flex-shrink-0' />
-              <h2 className='text-2xl font-semibold font-title '>She's Cos</h2>
+              <h2 className='text-2xl font-semibold font-title '>NK</h2>
             </Link>
             <p className='mt-4 text-sm'>
               <span className='font-semibold'>Địa chỉ:</span> 246 Dương Bá Trạc, P.2, Q.8, TP.HCM
             </p>
-            <p className='mt-4 text-sm font-semibold '>+391 (0)35 2568 4593</p>
-            <p className='mt-4 text-sm '>hello@shecos</p>
+            <p className='mt-4 text-sm font-semibold '>0936911140</p>
+            <p className='mt-4 text-sm '>trankyhung225@gmail.com</p>
           </div>
           <div className='hidden flex-col items-start  max-w-[258px] md:flex'>
             <h3 className='text-xl font-semibold'>Danh Mục</h3>
             {menuOptions.map((option, index) => (
               <Link
                 to={option.path}
-                className='py-2 text-base font-normal transition duration-200 hover:text-yellowLinear'
+                className='py-2 text-base font-normal transition duration-200 hover:text-black24 hover:font-medium'
                 key={index}
               >
                 {option.title}
@@ -42,11 +41,11 @@ export default function Footer() {
                 type='text'
                 placeholder='Nhập địa chỉ email'
               />
-              <button className='h-full text-xs sm:text-base px-6 font-semibold text-white bg-yellowLinear'>Theo dõi</button>
+              <button className='h-full text-xs sm:text-base px-6 font-semibold text-white bg-black'>Theo dõi</button>
             </div>
           </div>
         </div>
-        <div className='mt-2 text-mediumGrey'>© She's cosmetic 2023</div>
+        <div className='mt-2 text-mediumGrey'>© Nk's  2023</div>
       </div>
     </footer>
   )

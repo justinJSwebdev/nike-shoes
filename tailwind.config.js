@@ -9,9 +9,9 @@ module.exports = {
     extend: {
       colors: {
         "black24": "#242424",
-        "darkGrey": "#505050",
+        "darkGrey": "#535050",
         "mediumGrey": "#7C7C7C",
-        "thinGrey": "#A7A7A7",
+        "thinGrey": "#D9D9D9",
         "lightGrey": "#ABABAB",
         "smoothGrey": "#EAEAEA",
         "whiteSlay": "#F4F4F4",
@@ -19,7 +19,7 @@ module.exports = {
         "footer": "#F8F8F8",
       },
       backgroundImage: {
-        'hero-pattern': 'url(/images/hero.jpg)'
+        'hero-pattern': 'url(/images/banner_cart.jpg)'
       },
       screens: {
         'medium': '990px'

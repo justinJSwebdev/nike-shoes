@@ -21,7 +21,7 @@ export default function QuantityController({
     let _value = Number(e.target.value)
     if (max && _value >= max) {
       _value = max
-    } else if (_value < 1) _value = 1
+    } else if (_value <= 1) _value = 1
     onType && onType(_value)
   }
   const handleIncrease = () => {
@@ -34,7 +34,7 @@ export default function QuantityController({
   }
 
   const handleDecrease = () => {
-    if (value < 1) {
+    if (value <= 1) {
       value == 1
     } else {
       value--

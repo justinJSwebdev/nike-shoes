@@ -19,7 +19,7 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false
   },
-  "include": ["src/**/*.ts*"],
+  "include": ["src/**/*.ts*", "src/useRoutesElements.tsx"],
   "exclude": ["node_modules", "dist", "lib"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

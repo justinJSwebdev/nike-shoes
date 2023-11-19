@@ -9,6 +9,7 @@ import { Provider } from 'react-redux'
 import { store } from './redux/store'
 import { AppProvider } from './contexts/app.context'
 import 'swiper/css'
+import 'react-toastify/dist/ReactToastify.css'
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {

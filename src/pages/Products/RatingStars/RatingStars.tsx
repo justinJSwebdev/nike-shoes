@@ -88,7 +88,6 @@ export default function RatingStars({ queryConfig }: Props) {
                     </svg>
                   )
                 })}
-              {index !== 0 && <div className='font-medium text-darkGrey'>Trở lên</div>}
             </div>
           </li>
         ))}

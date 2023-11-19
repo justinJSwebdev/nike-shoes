@@ -1,17 +1,20 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useContext } from 'react'
 import ReactDOM from 'react-dom'
 import { Link, NavLink } from 'react-router-dom'
 import { menuOptions } from 'src/constants/menuOptions'
 import { close } from 'src/redux/features/MenuMobileContext'
 import { UserIcon } from 'src/icons'
 import { useAppDispatch, useAppSelector } from 'src/redux/hooks'
+import { getUserFromLS } from 'src/utils/auth'
+import { AppContext } from 'src/contexts/app.context'
 
 export default function Modal() {
-  const isOpen = useAppSelector((state) => state.counter.status)
+  const isOpen = useAppSelector((state) => state.modal.status)
   const dispatch = useAppDispatch()
   const nodeRef = useRef<HTMLDivElement>(null)
+  const { profile } = useContext(AppContext)
   useEffect(() => {
     function handleClickOutPopover(this: Document, ev: MouseEvent) {
       if (nodeRef.current && !nodeRef.current.contains(ev.target as Node)) {
@@ -39,7 +42,7 @@ export default function Modal() {
         <div className='flex flex-col items-start w-full h-full' ref={nodeRef}>
           <div className='flex justify-end w-full'>
             <div
-              className=' max-w-fit font-bold  text-darkGrey cursor-pointer'
+              className='font-bold cursor-pointer max-w-fit text-darkGrey'
               onClick={() => {
                 console.log('click')
                 dispatch(close())
@@ -50,12 +53,29 @@ export default function Modal() {
           </div>
 
           <div className='flex items-center w-full gap-4 py-4 border-b-2'>
-            <div className='w-[40px] h-[40px] border-2 border-darkGrey rounded-full flex-shrink-0 flex items-center justify-center'>
-              <UserIcon className='text-darkGrey'></UserIcon>
-            </div>
-            <Link to='/' className='font-semibold'>
-              Đăng nhập
-            </Link>
+            {profile && profile.name ? (
+              <>
+                <div className='w-[40px] h-[40px] border-2 border-darkGrey rounded-full flex-shrink-0 flex items-center justify-center'>
+                  <img
+                    src={profile.image || 'https://source.unsplash.com/random'}
+                    alt='user'
+                    className='object-cover w-full h-full rounded-full'
+                  />
+                </div>
+                <Link to='/info' className='font-semibold'>
+                  {profile.name}
+                </Link>
+              </>
+            ) : (
+              <>
+                <div className='w-[40px] h-[40px] border-2 border-darkGrey rounded-full flex-shrink-0 flex items-center justify-center'>
+                  <UserIcon className='text-darkGrey'></UserIcon>
+                </div>
+                <Link to='/' className='font-semibold'>
+                  Đăng nhập
+                </Link>
+              </>
+            )}
           </div>
 
           {menuOptions.map((option, index) => (

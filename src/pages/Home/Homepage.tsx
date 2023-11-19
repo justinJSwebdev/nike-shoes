@@ -10,41 +10,52 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-
 import 'swiper/css/scrollbar'
 import Slider from 'src/components/Slider/Slider'
 export default function Homepage() {
   return (
     <>
-      <section className='section md:p-0 h-[390px] lg:h-[770px] bg-hero-pattern bg-cover bg-top  bg-no-repeat w-full relative pt-[72px] overflow-hidden'>
+      <section className='section md:p-0 h-[390px] lg:h-[770px] w-full relative overflow-hidden'>
         <div className='absolute inset-0 w-full h-full bg-black/40'></div>
-        <div className='container relative flex flex-col justify-end w-full h-full'>
-          <motion.h1
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ ease: 'easeOut', duration: 0.75 }}
-            className='text-2xl text-white md:text-2xl lg:text-[44px] font-semibold mb-3'
-          >
-            RUN FOR THE HILLS
-          </motion.h1>
-          <motion.p
-            initial={{ y: 200, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ ease: 'easeOut', duration: 1.5 }}
-            className='mb-4 font-normal text-white md:text-sm lg:text-base max-w-[467px]'
-          >
-            It time to put on your running shoes and Run For The Hills Every minute counts.
-          </motion.p>
-          <motion.div
-            initial={{ y: 300 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ ease: 'easeOut', duration: 2 }}
-            className=''
-          >
-            <Button type='button' className='max-w-[210px] mb-[50px] md:mb-[90px]'>
-              Learn more
-            </Button>
-          </motion.div>
+        <video
+          src='https://res.cloudinary.com/dhaozfpxg/video/upload/v1699771397/videos/nike_run_brg6fd.mp4'
+          className='w-full h-full object-cover'
+          autoPlay
+          loop
+          muted
+        ></video>
+        <div className='container flex flex-col justify-end w-full h-full'>
+          <div className=' absolute z-20 bottom-0'>
+            <motion.h1
+              initial={{ y: 100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ ease: 'easeOut', duration: 0.75 }}
+              className='text-2xl text-white md:text-2xl lg:text-[44px] font-semibold mb-3'
+            >
+              RUN FOR THE HILLS
+            </motion.h1>
+            <motion.p
+              initial={{ y: 200, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ ease: 'easeOut', duration: 1.5 }}
+              className='mb-4 font-normal text-white md:text-sm lg:text-base max-w-[467px]'
+            >
+              It time to put on your running shoes and Run For The Hills Every minute counts.
+            </motion.p>
+            <motion.div
+              initial={{ y: 300 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ ease: 'easeOut', duration: 2 }}
+              className=''
+            >
+              <Button
+                type='button'
+                className='max-w-[210px] mb-[50px] md:mb-[90px] bg-white text-darkGrey hover:text-white hover:bg-black'
+              >
+                Learn more
+              </Button>
+            </motion.div>
+          </div>
         </div>
       </section>
       {/* Featured products */}
@@ -74,20 +85,31 @@ export default function Homepage() {
               }}
               className='relative w-full h-full'
             >
-              <SwiperSlide>
-                {' '}
-                <Link to='w-full h-full'>
-                  <img src='./images/featured-1.png' alt='' className='object-cover w-full h-full' />
+              <SwiperSlide className='overflow-hidden'>
+                <Link to='w-full h-full '>
+                  <img
+                    src='./images/featured-1.png'
+                    alt=''
+                    className='object-cover w-full h-full hover:scale-125 transition-all duration-300'
+                  />
                 </Link>
               </SwiperSlide>
-              <SwiperSlide>
+              <SwiperSlide className='overflow-hidden'>
                 <Link to='w-full h-full'>
-                  <img src='./images/featured-2.png' alt='' className='object-cover w-full h-full' />
+                  <img
+                    src='./images/featured-2.png'
+                    alt=''
+                    className='object-cover w-full h-full hover:scale-125 transition-all duration-300'
+                  />
                 </Link>
               </SwiperSlide>
-              <SwiperSlide>
+              <SwiperSlide className='overflow-hidden'>
                 <Link to='w-full h-full'>
-                  <img src='./images/featured-3.png' alt='' className='object-cover w-full h-full' />
+                  <img
+                    src='./images/featured-3.png'
+                    alt=''
+                    className='object-cover w-full h-full hover:scale-125 transition-all duration-300'
+                  />
                 </Link>
               </SwiperSlide>
               <SwiperSlide>
@@ -108,7 +130,7 @@ export default function Homepage() {
               <img src='./images/banner.jpg' alt='' className='object-cover w-full h-full' />
             </div>
             <div className='flex flex-col flex-wrap items-center justify-center col-span-1 md:flex-col md:px-5 md:col-span-3 md:items-start md:order-none'>
-              <h2 className='text-[28px] md:text-[38px] font-bold max-w-full md:max-w-[400px] md:text-left text-center'>
+              <h2 className='md:text-[32px] medium:text-[38px] font-bold max-w-full md:max-w-[400px] md:text-left text-center'>
                 WALK CONFIDENTLY IN YOUR SHOES
               </h2>
               <p className='mb-4 text-black w-full md:max-w-[400px] md:text-left text-center'>
@@ -192,7 +214,7 @@ export default function Homepage() {
                 spaceBetween: 20
               },
               1024: {
-                slidesPerView: 3,
+                slidesPerView: 4,
                 spaceBetween: 20
               }
             }}

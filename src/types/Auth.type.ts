@@ -4,4 +4,20 @@ export type RegisterData = {
   password: string
   confirm_password: string
 }
-export type LoginData = Omit<RegisterData, 'name' | 'email'>
+export type User = {
+  email: string
+  name: string
+  role: string
+  image?: string
+}
+
+export type AuthData = {
+  status: string
+  data: {
+    token: string
+    refresh_token: string
+    user: User
+  }
+}
+
+export type LoginData = Pick<RegisterData, 'password' | 'email'>

@@ -6,15 +6,20 @@ import SignInPage from './pages/Login/SignInPage'
 import SignUpPage from './pages/SignUp/SignUpPage'
 import ProductDetail from './pages/ProductDetail/ProductDetail'
 import Products from './pages/Products/Products'
-
-const isAuth = false
+import CartPage from './pages/Cart/CartPage'
+import UserLayout from './layouts/User/UserLayout'
+import ProfilePage from './pages/User/ProfilePage'
+import { useContext } from 'react'
+import { AppContext } from './contexts/app.context'
 
 const RejectedRoute = () => {
-  return !isAuth ? <Navigate to='/login'></Navigate> : <Outlet></Outlet>
+  const { isAuthenticated } = useContext(AppContext)
+  return !isAuthenticated ? <Navigate to='/login'></Navigate> : <Outlet></Outlet>
 }
 
 const ProtectedRoute = () => {
-  return isAuth ? <Navigate to='/'></Navigate> : <Outlet></Outlet>
+  const { isAuthenticated } = useContext(AppContext)
+  return isAuthenticated ? <Navigate to='/'></Navigate> : <Outlet></Outlet>
 }
 
 export default function useRoutesElements() {
@@ -47,7 +52,19 @@ export default function useRoutesElements() {
       children: [
         {
           path: path.profile,
-          element: <MainLayout>Profile</MainLayout>
+          element: <MainLayout />,
+          children: [
+            {
+              path: '',
+              element: <UserLayout></UserLayout>,
+              children: [
+                {
+                  element: <ProfilePage></ProfilePage>,
+                  index: true
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -75,6 +92,14 @@ export default function useRoutesElements() {
       element: (
         <MainLayout>
           <Products></Products>
+        </MainLayout>
+      )
+    },
+    {
+      path: path.cart,
+      element: (
+        <MainLayout>
+          <CartPage></CartPage>
         </MainLayout>
       )
     }

@@ -14,7 +14,7 @@ export default function CategoryDropdown() {
   return (
     <div className='relative z-[25]' ref={nodeRef}>
       <div
-        className='p-5 rounded-lg border border-gray100 bg-white flex items-center justify-between cursor-pointer min-w-[250px]'
+        className='p-3 md:p-5 rounded-lg border border-gray100 bg-white flex items-center justify-between cursor-pointer min-w-[250px]'
         onClick={() => {
           setShow(!show)
         }}
@@ -32,35 +32,35 @@ export default function CategoryDropdown() {
           onClick={() => handleClickOption(' Mới nhất', 'new')}
           aria-hidden
         >
-          Mới nhất
+          Latest products
         </div>
         <div
           className='p-5 font-medium cursor-pointer hover:text-green-500'
           onClick={() => handleClickOption('Cũ nhất', 'old')}
           aria-hidden
         >
-          Cũ nhất
+          Oldest products
         </div>
         <div
           className='p-5 font-medium cursor-pointer hover:text-green-500'
           onClick={() => handleClickOption('Phổ biến nhất', 'popular')}
           aria-hidden
         >
-          Phổ biến nhất
+          Most popular product
         </div>
         <div
           className='p-5 font-medium cursor-pointer hover:text-green-500'
           onClick={() => handleClickOption('Giá thấp tới cao', 'lower')}
           aria-hidden
         >
-          Giá thấp tới cao
+          Sort by Price Higher
         </div>
         <div
           className='p-5 font-medium cursor-pointer hover:text-green-500'
           onClick={() => handleClickOption('  Giá cao tới thấp', 'higher')}
           aria-hidden
         >
-          Giá cao tới thấp
+          Sort by Price Lower
         </div>
       </div>
     </div>

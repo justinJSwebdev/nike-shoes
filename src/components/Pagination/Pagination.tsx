@@ -51,10 +51,13 @@ const Pagination = ({ pageSize }: PaginationProps) => {
           <Link
             to={`/products/${page + 1}`}
             key={index}
-            className={classNames('mx-2 cursor-pointer  px-3 py-2 ', {
-              'font-bold': pageNumber === page,
-              'font-normal': pageNumber !== page
-            })}
+            className={classNames(
+              'mx-2 cursor-pointer  px-3 py-2 w-[30px] h-[30px] rounded-full flex items-center justify-center',
+              {
+                'font-bold bg-black text-white': pageNumber === page,
+                'font-normal bg-transparent text-black': pageNumber !== page
+              }
+            )}
           >
             {pageNumber}
           </Link>
